@@ -18,7 +18,7 @@ The screenshots below were taken on the Booking Local site. A temporary example 
 1. Install and activate Directorist.
 2. Upload the extension ZIP in **Plugins → Add Plugin → Upload Plugin**, install, and activate it.
 3. Go to **Directorist → Settings → Extensions → Author Approval**. Make sure **Enable Author registration approval** is on and select **Save changes** if you changed anything.
-4. Open the Directorist registration page in a signed-out browser window. Confirm the request checkbox appears.
+4. Open the Directorist registration page in a signed-out browser window. Confirm the **I am an author / I am a user** choices or the request checkbox appear.
 5. Review **Users → Author Approvals** for requests.
 
 WordPress 6.5+, PHP 7.4+, and Directorist are required. The extension was tested with Directorist 8.10.7. If Directorist is inactive, this plugin displays an admin warning and does not load its workflow hooks.
@@ -29,18 +29,18 @@ WordPress 6.5+, PHP 7.4+, and Directorist are required. The extension was tested
 
 ```text
 Directorist registration
-  ├─ Checkbox clear → Regular account
-  └─ Request Author status → Pending request
+  ├─ I am a user (or checkbox clear) → Regular account
+  └─ I am an author (or checkbox selected) → Pending request
                               ├─ Approve → Directorist Author
                               └─ Reject → Regular account
                                             └─ Request again, if enabled → Pending
 ```
 
-The checkbox is shown on Directorist registration forms. Selecting Directorist's native Author choice also creates a pending request. An existing regular user can request access through Directorist's **Become an Author** dashboard action. Neither path grants Author access before approval.
+When Directorist displays its user type selector, choose **I am an author** to request approval or **I am a user** for a regular account. The extension shows its request checkbox on Directorist forms that do not display that selector. An existing regular user can request access through Directorist's **Become an Author** dashboard action. Neither Author request path grants access before approval.
 
-![Request Author status on the registration form](docs/images/registration-request.png)
+![Author and User registration choices](docs/images/registration-request.png)
 
-If Directorist email verification is enabled, account creation and the approval request complete after the applicant verifies the address. A verification message can be customized in Extensions settings. The Pending queue remains empty for an applicant who has not completed verification.
+If Directorist email verification is enabled, account creation and the approval request complete after the applicant verifies the address. A verification message can be customized in Extensions settings. The Pending queue remains empty for an applicant who has not completed verification. On this Local site, verification emails are captured in the site's **Email** tab in Local.
 
 Managed regular, pending, and rejected users cannot use Directorist listing capabilities or write listings through the front-end form, REST listing routes, or direct WordPress post insertion. Approved users receive Directorist's Author user type. Directorist's own rules for pricing plans, required fields, and moderation continue to apply. No listing is published as part of approval.
 
@@ -64,8 +64,8 @@ Open **Directorist → Settings → Extensions → Author Approval** and choose 
 | --- | --- | --- |
 | Enable Author registration approval | Shows the request option and enforces approval restrictions | On |
 | Allow rejected applicants to request again | Shows a request again button to rejected applicants | Off |
-| Registration checkbox label | Text beside the request checkbox | “Request Author status to submit listings” |
-| Registration checkbox help text | Explanation below the checkbox | Explains administrator review and regular signup |
+| Registration checkbox label | Text beside the request checkbox when no native user type selector is shown | “Request Author status to submit listings” |
+| Registration choice help text | Explanation below the native user type selector or request checkbox | Explains administrator review and regular signup |
 | Registration confirmation message | Message after a successful request | Awaiting administrator approval |
 | Email verification message | Message shown while email verification is needed | Verify email before review |
 
@@ -129,8 +129,9 @@ Turning off **Enable Author registration approval** hides the registration reque
 
 | Symptom | Check |
 | --- | --- |
-| Request checkbox is not visible | Both plugins are active, Directorist registration is enabled, the approval switch is on, and you are signed out |
-| Registration succeeded but no Pending entry appears | Confirm the checkbox was selected and any required email verification is complete |
+| Author choice or request checkbox is not visible | Both plugins are active, Directorist registration is enabled, the approval switch is on, and you are signed out |
+| Registration succeeded but no Pending entry appears | Confirm **I am an author** or the checkbox was selected and any required email verification is complete |
+| Signup says “Too many registration requests” | Directorist limits repeated requests from one IP for one hour; wait before retrying |
 | Approved user still cannot submit | Confirm Approved status; then check Directorist's listing permissions, pricing plan, payment, and required fields |
 | Rejected user has no request again button | Enable reapplication and reload their Directorist dashboard |
 | Notification email is missing | Check notification switches, the WordPress administration email, site mail transport, spam folder, and any mail log |

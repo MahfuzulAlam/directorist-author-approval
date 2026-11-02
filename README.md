@@ -9,7 +9,7 @@ Let people request Directorist Author status while an administrator decides who 
 | Configure approval, messages, and emails | **Directorist → Settings → Extensions → Author Approval** |
 | Approve or reject requests | **Users → Author Approvals** |
 | See an account's current status | **Users → All Users**, in the **Author Approval** column |
-| Request Author status | The Directorist registration form, or the Directorist dashboard's **Become an Author** action |
+| Request Author status | Choose **I am an author** on the Directorist registration form, or use the dashboard's **Become an Author** action |
 
 ## Requirements and installation
 
@@ -25,9 +25,9 @@ The plugin is already installed and active on this Local site. If you are using 
 
 ## How an applicant requests access
 
-On the Directorist registration form, select **Request Author status to submit listings** before signing up. Leaving the box clear creates a regular account. A request remains pending until an administrator reviews it. If Directorist requires email verification, the applicant must verify the address before the account and approval request are completed.
+On this site's Directorist registration form, choose **I am an author** to request approval or **I am a user** for a regular account. When a Directorist form does not display its user type choices, the extension shows a **Request Author status to submit listings** checkbox instead. A request remains pending until an administrator reviews it. If Directorist requires email verification, the applicant must verify the address before the account and approval request are completed. On Local, open the site's **Email** tab to find that verification message.
 
-![Author request checkbox on the registration form](docs/images/registration-request.png)
+![Author and User choices on the registration form](docs/images/registration-request.png)
 
 An existing regular user can use Directorist's **Become an Author** action on their dashboard. The request is sent for review; it does not grant Author access immediately.
 
@@ -59,7 +59,7 @@ The main switches are:
 | Email administrator about new requests | Sends a request email to the WordPress **Administration Email Address** | On |
 | Email applicants about requests and decisions | Sends pending, approved, and rejected emails | On |
 
-You can also edit the registration checkbox label and help text, confirmation and verification messages, all email subjects and bodies, the three dashboard status messages, and the request again button label. Email delivery uses the site's `wp_mail()` configuration. The switches shown in screenshots reflect this Local site's settings and may differ from the defaults.
+You can also edit the request checkbox label used when Directorist's user type selector is absent, the help text shown with the registration choice, confirmation and verification messages, all email subjects and bodies, the three dashboard status messages, and the request again button label. Email delivery uses the site's `wp_mail()` configuration. The switches shown in screenshots reflect this Local site's settings and may differ from the defaults.
 
 ![Notification and administrator email settings](docs/images/email-settings.png)
 
@@ -78,8 +78,9 @@ Existing accounts without an approval status are left as they were, including ex
 
 ## If something does not work
 
-- **The request option is missing:** Check that Directorist and this plugin are active, Directorist registration is enabled, and **Enable Author registration approval** is on. Open a Directorist registration form while signed out.
-- **A request is not in Pending:** If email verification is enabled, confirm the applicant verified their address. Also confirm they selected the request checkbox.
+- **The Author choice is missing:** Check that Directorist and this plugin are active, Directorist registration is enabled, and **Enable Author registration approval** is on. Open a Directorist registration form while signed out. The form shows either Directorist's **I am an author** choice or the extension's request checkbox.
+- **A request is not in Pending:** If email verification is enabled, confirm the applicant followed the link in the verification email. On Local, find it in the site's **Email** tab. Also confirm they chose **I am an author** or selected the request checkbox.
+- **Signup says “Too many registration requests”:** Directorist limits repeated signups from one IP for one hour. Wait for the limit to expire before retrying.
 - **An applicant cannot submit after approval:** Check the **Approved** tab and Directorist's own listing, pricing, and moderation requirements.
 - **Emails are missing:** Confirm the notification switches, WordPress administration email address, and the site's mail delivery configuration. Look in the spam folder or a mail log if available.
 - **A rejected applicant cannot request again:** Turn on **Allow rejected applicants to request again** in Extensions settings.

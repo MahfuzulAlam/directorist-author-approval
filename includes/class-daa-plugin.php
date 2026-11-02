@@ -63,7 +63,7 @@ final class DAA_Plugin {
 			'dashboard_rejected'  => 'Your Author account request was not approved. Please contact the website administrator for further assistance.',
 			'reapply_label'       => 'Request Author status again',
 			'registration_label'  => 'Request Author status to submit listings',
-			'registration_help'   => 'An administrator will review your request. You can create a regular account without selecting this option.',
+			'registration_help'   => 'An administrator reviews Author requests. Regular User accounts do not require approval.',
 		);
 	}
 

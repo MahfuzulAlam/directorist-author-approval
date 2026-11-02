@@ -16,8 +16,12 @@
 	margin: 8px 0 0 25px;
 }
 
-.daa-registration-form .atbd_user_type_area {
+.daa-registration-native-type .daa-author-option label {
 	display: none !important;
+}
+
+.daa-registration-native-type .daa-author-option p {
+	margin: 0;
 }
 
 .daa-dashboard-notice,

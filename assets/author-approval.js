@@ -21,15 +21,24 @@
 
 	forms.forEach(function (form) {
 		form.classList.add('daa-registration-form');
+		var author = form.querySelector('input[name="user_type"][value="author"]');
 		var regular = form.querySelector('input[name="user_type"][value="general"]');
-		if (regular) {
-			regular.checked = true;
-		} else if (form.querySelector('input[name="user_type"][value="author"]')) {
-			var general = document.createElement('input');
-			general.type = 'hidden';
-			general.name = 'user_type';
-			general.value = 'general';
-			form.appendChild(general);
+		var request = form.querySelector('input[name="daa_request_author"]');
+		if (author || regular) {
+			form.classList.add('daa-registration-native-type');
+			if (!form.querySelector('input[name="user_type"]:checked')) {
+				(regular || author).checked = true;
+			}
+			var syncRequest = function () { request.checked = !!author && author.checked; };
+			form.querySelectorAll('input[name="user_type"]').forEach(function (radio) {
+				radio.addEventListener('change', syncRequest);
+			});
+			syncRequest();
+			var option = request.closest('.daa-author-option');
+			var lastType = (regular || author).closest('.atbd_user_type_area');
+			if (option && lastType) {
+				lastType.insertAdjacentElement('afterend', option);
+			}
 		}
 		form.addEventListener('submit', function () { remember(form); });
 		form.querySelectorAll('.directorist-authentication__form__btn').forEach(function (button) {

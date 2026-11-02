@@ -62,7 +62,7 @@ final class DAA_Settings {
 			'admin_notifications' => __( 'Email administrator about new requests', 'directorist-author-approval' ),
 			'user_notifications'  => __( 'Email applicants about requests and decisions', 'directorist-author-approval' ),
 			'registration_label'   => __( 'Registration checkbox label', 'directorist-author-approval' ),
-			'registration_help'    => __( 'Registration checkbox help text', 'directorist-author-approval' ),
+			'registration_help'    => __( 'Registration choice help text', 'directorist-author-approval' ),
 			'confirmation_message' => __( 'Registration confirmation message', 'directorist-author-approval' ),
 			'verification_message' => __( 'Email verification message', 'directorist-author-approval' ),
 			'admin_subject'       => __( 'Administrator email subject', 'directorist-author-approval' ),
