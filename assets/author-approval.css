@@ -1,0 +1,44 @@
+.daa-author-option {
+	padding: 14px 16px;
+	border: 1px solid #d6e2eb;
+	border-radius: 6px;
+	background: #f7fbfd;
+}
+
+.daa-author-option label {
+	display: flex;
+	align-items: center;
+	gap: 9px;
+	font-weight: 600;
+}
+
+.daa-author-option p {
+	margin: 8px 0 0 25px;
+}
+
+.daa-registration-form .atbd_user_type_area {
+	display: none !important;
+}
+
+.daa-dashboard-notice,
+.daa-registration-confirmation {
+	margin: 16px 0;
+	padding: 14px 18px;
+	border-left: 4px solid #2271b1;
+	background: #f0f6fc;
+	color: #1d2327;
+}
+
+.daa-status-approved {
+	border-left-color: #00a32a;
+	background: #edfaef;
+}
+
+.daa-status-rejected {
+	border-left-color: #d63638;
+	background: #fcf0f1;
+}
+
+.daa-dashboard-notice form {
+	margin-top: 12px;
+}
